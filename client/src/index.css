@@ -1,0 +1,67 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+
+  --color-background: hsl(260 50% 10%);
+  --color-foreground: hsl(260 10% 95%);
+  
+  --color-card: hsl(260 40% 15% / 0.6);
+  --color-card-foreground: hsl(260 10% 95%);
+  
+  --color-popover: hsl(260 40% 15% / 0.9);
+  --color-popover-foreground: hsl(260 10% 95%);
+  
+  --color-primary: hsl(280 80% 60%);
+  --color-primary-foreground: hsl(0 0% 100%);
+  
+  --color-secondary: hsl(190 90% 50%);
+  --color-secondary-foreground: hsl(260 50% 10%);
+  
+  --color-muted: hsl(260 30% 25%);
+  --color-muted-foreground: hsl(260 10% 70%);
+  
+  --color-accent: hsl(320 90% 60%);
+  --color-accent-foreground: hsl(0 0% 100%);
+  
+  --color-destructive: hsl(0 62% 30%);
+  --color-destructive-foreground: hsl(0 0% 100%);
+  
+  --color-border: hsl(260 30% 30%);
+  --color-input: hsl(260 30% 25%);
+  --color-ring: hsl(280 80% 60%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply font-sans antialiased bg-background text-foreground overflow-x-hidden;
+    background-image: 
+      radial-gradient(circle at 15% 50%, hsl(280 80% 60% / 0.15), transparent 25%), 
+      radial-gradient(circle at 85% 30%, hsl(190 90% 50% / 0.15), transparent 25%);
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply backdrop-blur-xl bg-card border border-white/10 shadow-xl;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-secondary;
+  }
+
+  .glow-text {
+    text-shadow: 0 0 20px hsl(280 80% 60% / 0.5);
+  }
+}
